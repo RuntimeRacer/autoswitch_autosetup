@@ -1,8 +1,12 @@
 #!/bin/bash
 #Script is for the automatic installation for autoswitch nicehash on HiveOS
 #Script By CryptoLuigi (Michael Ruperto)
+#Updated by @RuntimeRacer
 #Date: 2019-03-20
-#Updated: 2019-04-05
+#Updated: 2022-06-20
+
+# Update Notes:
+# - Order of algos matches order of autoswitch script for better overview
 
 function applyproperties()
 {
@@ -11,36 +15,37 @@ function applyproperties()
 }
 function applyhashrate()
 {
-	echo "$keccak" | sed -i -e"s/^\"Keccak\":.*/\"Keccak\":$keccak/" /hive-config/autoswitch.conf
-	echo "$nist5" | sed -i -e"s/^\"Nist5\":.*/\"Nist5\":$nist5/" /hive-config/autoswitch.conf
-	echo "$neoscrypt" | sed -i -e"s/^\"NeoScrypt\":.*/\"NeoScrypt\":$neoscrypt/" /hive-config/autoswitch.conf
-	echo "$keccak" | sed -i -e"s/^\"Keccak\":.*/\"Keccak\":$keccak/" /hive-config/autoswitch.conf
-	echo "$lyra2re" | sed -i -e"s/^\"Lyra2RE\":.*/\"Lyra2RE\":$lyra2re/" /hive-config/autoswitch.conf
-	echo "$lyra2rev2" | sed -i -e"s/^\"Lyra2REv2\":.*/\"Lyra2REv2\":$lyra2rev2/" /hive-config/autoswitch.conf
-	echo "$ethash" | sed -i -e"s/^\"Ethash\":.*/\"Ethash\":$ethash/" /hive-config/autoswitch.conf
-	echo "$skunk" | sed -i -e"s/^\"Skunk\":.*/\"Skunk\":$skunk/" /hive-config/autoswitch.conf
-	echo "$cryptonightv7" | sed -i -e"s/^\"CryptoNightV7\":.*/\"CryptoNightV7\":$cryptonightv7/" /hive-config/autoswitch.conf
-	echo "$cryptonightr" | sed -i -e"s/^\"CryptoNightR\":.*/\"CryptoNightR\":$cryptonightr/" /hive-config/autoswitch.conf
-	echo "$cryptonightv8" | sed -i -e"s/^\"CryptoNightV8\":.*/\"CryptoNightV8\":$cryptonightv8/" /hive-config/autoswitch.conf
-	echo "$cryptonightheavy" | sed -i -e"s/^\"CryptoNightHeavy\":.*/\"CryptoNightHeavy\":$cryptonightheavy/" /hive-config/autoswitch.conf
-	echo "$lyra2z" | sed -i -e"s/^\"Lyra2Z\":.*/\"Lyra2Z\":$lyra2z/" /hive-config/autoswitch.conf
-	echo "$lyra2rev3" | sed -i -e"s/^\"Lyra2rev3\":.*/\"Lyra2rev3\":$lyra2rev3/" /hive-config/autoswitch.conf
-	echo "$x16r" | sed -i -e"s/^\"X16r\":.*/\"X16r\":$x16r/" /hive-config/autoswitch.conf
-	echo "$mtp" | sed -i -e"s/^\"MTP\":.*/\"MTP\":$mtp/" /hive-config/autoswitch.conf
-	echo "$cuckaroo29" | sed -i -e"s/^\"Grin29\":.*/\"Grin29\":$cuckaroo29/" /hive-config/autoswitch.conf
-	echo "$cuckaroo31" | sed -i -e"s/^\"Grin31\":.*/\"Grin31\":$cuckaroo31/" /hive-config/autoswitch.conf
-	echo "$zhash" | sed -i -e"s/^\"Zhash\":.*/\"Zhash\":$zhash/" /hive-config/autoswitch.conf
 	echo "$beam" | sed -i -e"s/^\"Beam\":.*/\"Beam\":$beam/" /hive-config/autoswitch.conf
+	echo "$grin29" | sed -i -e"s/^\"Grin29\":.*/\"Grin29\":$grin29/" /hive-config/autoswitch.conf
+	echo "$grin31" | sed -i -e"s/^\"Grin31\":.*/\"Grin31\":$grin31/" /hive-config/autoswitch.conf
+	echo "$lyra2rev3" | sed -i -e"s/^\"Lyra2rev3\":.*/\"Lyra2rev3\":$lyra2rev3/" /hive-config/autoswitch.conf
+	echo "$mtp" | sed -i -e"s/^\"MTP\":.*/\"MTP\":$mtp/" /hive-config/autoswitch.conf
+	echo "$cryptonightr" | sed -i -e"s/^\"CryptoNightR\":.*/\"CryptoNightR\":$cryptonightr/" /hive-config/autoswitch.conf
+	echo "$cuckooae" | sed -i -e"s/^\"CuckooAE\":.*/\"CuckooAE\":$cuckooae/" /hive-config/autoswitch.conf
+	echo "$grin29d" | sed -i -e"s/^\"Grin29d\":.*/\"Grin29d\":$grin29d/" /hive-config/autoswitch.conf
+	echo "$beamv2" | sed -i -e"s/^\"BeamV2\":.*/\"BeamV2\":$beamv2/" /hive-config/autoswitch.conf
+	echo "$x16rv2" | sed -i -e"s/^\"X16Rv2\":.*/\"X16Rv2\":$x16rv2/" /hive-config/autoswitch.conf
+	echo "$randomx" | sed -i -e"s/^\"RandomX\":.*/\"RandomX\":$randomx/" /hive-config/autoswitch.conf
+	echo "$eaglesong" | sed -i -e"s/^\"Eaglesong\":.*/\"Eaglesong\":$eaglesong/" /hive-config/autoswitch.conf
+	echo "$cuckaroom" | sed -i -e"s/^\"Cuckaroom\":.*/\"Cuckaroom\":$cuckaroom/" /hive-config/autoswitch.conf
+	echo "$cuckatoo32" | sed -i -e"s/^\"Cuckatoo32\":.*/\"Cuckatoo32\":$cuckatoo32/" /hive-config/autoswitch.conf
+	echo "$kawpow" | sed -i -e"s/^\"KawPow\":.*/\"KawPow\":$kawpow/" /hive-config/autoswitch.conf
+  echo "$cuckaroobfc" | sed -i -e"s/^\"CuckarooBFC\":.*/\"CuckarooBFC\":$cuckaroobfc/" /hive-config/autoswitch.conf
+  echo "$beamv3" | sed -i -e"s/^\"BeamV3\":.*/\"BeamV3\":$beamv3/" /hive-config/autoswitch.conf
+  echo "$cuckarooz29" | sed -i -e"s/^\"CuckaRooz29\":.*/\"CuckaRooz29\":$cuckarooz29/" /hive-config/autoswitch.conf
+  echo "$octopus" | sed -i -e"s/^\"Octopus\":.*/\"Octopus\":$octopus/" /hive-config/autoswitch.conf
+  echo "$autolykos" | sed -i -e"s/^\"Autolykos\":.*/\"Autolykos\":$autolykos/" /hive-config/autoswitch.conf
+  echo "$zelhash" | sed -i -e"s/^\"Zelhash\":.*/\"Zelhash\":$zelhash/" /hive-config/autoswitch.conf
 }
 
 
 if [[ $# -eq 0 ]]; then
-	echo "proir to installing Nicehash autoswitch, it is recommended you add all required flightsheets"
+	echo "prior to installing Nicehash autoswitch, it is recommended you add all required flightsheets"
 	echo "Further documentation can be found on HiveOs Forum"
 	echo
 	read -p "Do you want to install autoswitch for Nicehash?(y/n)" -n 1 -r
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
-		curl https://raw.githubusercontent.com/lexandr0s/autoswitch/master/as-setup.sh | bash
+		curl https://raw.githubusercontent.com/RuntimeRacer/autoswitch/master/as-setup.sh | bash
 	fi
 	read -p "Do you want to configure it automatically now?(y/n)" -n 1 -r
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -57,47 +62,52 @@ if [[ $# -eq 0 ]]; then
 	fi
 	read -p "Do you know the hashrates of the algos you want to mine?(y/n)" -n 1 -r
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
+	  # @RuntimeRacer: Order of algos matches order of autoswitch script for better overview
+	  echo
+		read -p "What is your Beam Hashrate Hs? (0 for disable):" beam
 		echo
-		read -p "What is your Keccak Hashrate MHs? (0 for disable):" keccak
+		read -p "What is your Grin29 Hashrate Hs? (0 for disable):" grin29
 		echo
-		read -p "What is your Nist5 Hashrate MHs? (0 for disable):" nist5
-		echo
-		read -p "What is your NeoScrypt Hashrate MHs? (0 for disable):" neoscrypt
-		echo
-		read -p "What is your Lyra2RE Hashrate MHs? (0 for disable):" lyra2re
-		echo
-		read -p "What is your Lyra2REv2 Hashrate MHs? (0 for disable):" lyra2rev2
-		echo
-		read -p "What is your DaggerHashimoto Hashrate MHs? (0 for disable):" ethash
-		echo
-		read -p "What is your Skunk Hashrate MHs? (0 for disable):" skunk
-		echo
-		read -p "What is your CryptoNightV7 Hashrate kHs? (0 for disable):" cryptonightv7
-		echo
-		read -p "What is your CryptoNightHeavy Hashrate kHs? (0 for disable):" cryptonightheavy
-		echo
-		read -p "What is your Lyra2Z Hashrate MHs? (0 for disable):" lyra2z
-		echo
-		read -p "What is your X16r Hashrate MHs? (0 for disable):" x16r
-		echo
-		read -p "What is your CryptoNightV8 Hashrate kHs? (0 for disable):" cryptonightv8
-		echo
-		read -p "What is your MTP Hashrate MHs? (0 for disable):" mtp
-		echo
-		read -p "What is your Cuckaroo29 Hashrate Hs? (0 for disable):" cuckaroo29
-		echo
-		read -p "What is your CryptoNightR Hashrate kHs? (0 for disable):" cryptonightr
-		echo
-		read -p "What is your Cuckaroo31 Hashrate Hs? (0 for disable):" cuckaroo31
+		read -p "What is your Grin31 Hashrate Hs? (0 for disable):" grin31
 		echo
 		read -p "What is your Lyra2REv3 Hashrate MHs? (0 for disable):" lyra2rev3
 		echo
-		read -p "What is your Zhash Hashrate Hs? (0 for disable):" zhash
+		read -p "What is your MTP Hashrate MHs? (0 for disable):" mtp
 		echo
-		read -p "What is your Beam Hashrate Hs? (0 for disable):" beam
+		read -p "What is your CryptoNightR Hashrate KHs? (0 for disable):" cryptonightr
+    echo
+		read -p "What is your CuckooAE Hashrate Hs? (0 for disable):" cuckooae
+		echo
+		read -p "What is your Grin29d Hashrate Hs? (0 for disable):" grin29d
+    echo
+		read -p "What is your BeamV2 Hashrate Hs? (0 for disable):" beamv2
+    echo
+		read -p "What is your X16Rv2 Hashrate MHs? (0 for disable):" x16rv2
+    echo
+		read -p "What is your RandomX Hashrate KHs? (0 for disable):" randomx
+    echo
+		read -p "What is your Eaglesong Hashrate KHs? (0 for disable):" eaglesong
+    echo
+		read -p "What is your Cuckaroom Hashrate Hs? (0 for disable):" cuckaroom
+    echo
+		read -p "What is your Cuckatoo32 Hashrate Hs? (0 for disable):" cuckatoo32
+    echo
+		read -p "What is your KawPow Hashrate Hs? (0 for disable):" kawpow
+    echo
+		read -p "What is your CuckarooBFC Hashrate Hs? (0 for disable):" cuckaroobfc
+		echo
+		read -p "What is your BeamV3 Hashrate Hs? (0 for disable):" beamv3
+		echo
+		read -p "What is your CuckaRooz29 Hashrate Hs? (0 for disable):" cuckarooz29
+		echo
+		read -p "What is your Octopus Hashrate MHs? (0 for disable):" octopus
+		echo
+		read -p "What is your Autolykos Hashrate MHs? (0 for disable):" autolykos
+		echo
+		read -p "What is your Zelhash Hashrate MHs? (0 for disable):" zelhash
 		applyhashrate
 	fi
-	
+
 	echo
 	read -p "Do you want to start Nicehash autoswitch?(y/n)" -n 1 -r
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -110,7 +120,7 @@ fi
 
 if [[ $# -gt 0 ]]; then
 	if [[ ${#1} -gt 1 ]]; then
-		curl https://raw.githubusercontent.com/lexandr0s/autoswitch/master/as-setup.sh | bash
+		curl https://raw.githubusercontent.com/RuntimeRacer/autoswitch/master/as-setup.sh | bash
 		TOKEN=$1
 		shift
 		. /hive-config/rig.conf
@@ -119,139 +129,154 @@ if [[ $# -gt 0 ]]; then
 		echo "Argument 1 must be an APIkey"
 		exit
 	fi
-	if [[ $1 =~ ^[0-9]*(\.[0-9]+)?$ ]]; then
-		keccak=$1
+	if [[ $1 =~ ^[0-9]+$ ]]; then
+		beam=$1
 		shift
 	else
-		echo "Argument 2 must be an Keccak Hashrate MHs"
+		echo "Argument 2 must be an Beam Hashrate HS"
 		exit
 	fi
 	if [[ $1 =~ ^[0-9]+$ ]]; then
-		nist5=$1
+		grin29=$1
 		shift
 	else
-		echo "Argument 3 must be an Nist5 Hashrate MHs"
-		exit
-	fi
-	if [[ $1 =~ ^[0-9]*(\.[0-9]+)?$ ]]; then
-		neoscrypt=$1	
-		shift
-	else
-		echo "Argument 4 must be an NeoScrypt Hashrate MHs"
+		echo "Argument 3 must be an Grin29 Hashrate HS"
 		exit
 	fi
 	if [[ $1 =~ ^[0-9]+$ ]]; then
-		lyra2re=$1
+		grin31=$1
 		shift
 	else
-		echo "Argument 5 must be an Lyra2RE Hashrate MHs"
-		exit
-	fi
-	if [[ $1 =~ ^[0-9]+$ ]]; then
-		lyra2rev2=$1
-		shift
-	else
-		echo "Argument 6 must be an Lyra2REv2 Hashrate MHs"
-		exit
-	fi
-	if [[ $1 =~ ^[0-9]+$ ]]; then
-		ethash=$1
-		shift
-	else
-		echo "Argument 7 must be an Ethash Hashrate MHS"
-		exit
-	fi
-	if [[ $1 =~ ^[0-9]+$ ]]; then
-		skunk=$1
-		shift
-	else
-		echo "Argument 8 must be an Skunk Hashrate MHS"
-	exit
-	fi
-	if [[ $1 =~ ^[0-9]+$ ]]; then
-		cryptonightv7=$1
-		shift
-	else
-		echo "Argument 9 must be an CryptoNightV7 Hashrate kHS"
-		exit
-	fi
-	if [[ $1 =~ ^[0-9]*(\.[0-9]+)?$ ]]; then
-		cryptonightheavy=$1
-		shift
-	else
-		echo "Argument 10 must be an CryptoNightHeavy Hashrate MHS"
-		exit
-	fi
-	if [[ $1 =~ ^[0-9]+$ ]]; then
-		lyra2z=$1
-		shift
-	else
-		echo "Argument 11 must be an Lyra2Z Hashrate MHS"
-		exit
-	fi
-	if [[ $1 =~ ^[0-9]+$ ]]; then
-		x16r=$1
-		shift
-	else
-		echo "Argument 12 must be an X16r Hashrate MHS"
-		exit
-	fi
-	if [[ $1 =~ ^[0-9]+$ ]]; then
-		cryptonightv8=$1
-		shift
-	else
-		echo "Argument 13 must be an CryptoNightV8 Hashrate MHS"
-		exit
-	fi
-	if [[ $1 =~ ^[0-9]+$ ]]; then
-		mtp=$1
-		shift
-	else
-		echo "Argument 14 must be an MTP Hashrate MHS"
-		exit
-	fi
-	if [[ $1 =~ ^[0-9]+$ ]]; then
-		cuckaroo29=$1
-		shift
-	else
-		echo "Argument 15 must be an Cuckaroo29 Hashrate HS"
-		exit
-	fi
-	if [[ $1 =~ ^[0-9]*(\.[0-9]+)?$ ]]; then
-		cryptonightr=$1
-		shift
-	else
-		echo "Argument 16 must be an CryptoNightV8 Hashrate MHS"
-		exit
-	fi
-	if [[ $1 =~ ^[0-9]+$ ]]; then
-		cuckaroo31=$1
-		shift
-	else
-		echo "Argument 17 must be an Cuckaroo31 Hashrate HS"
+		echo "Argument 4 must be an Grin31 Hashrate HS"
 		exit
 	fi
 	if [[ $1 =~ ^[0-9]+$ ]]; then
 		lyra2rev3=$1
 		shift
 	else
-		echo "Argument 18 must be an Lyra2REv3 Hashrate MHS"
+		echo "Argument 5 must be an Lyra2REv3 Hashrate MHS"
+		exit
+	fi
+  if [[ $1 =~ ^[0-9]+$ ]]; then
+		mtp=$1
+		shift
+	else
+		echo "Argument 6 must be an MTP Hashrate MHS"
+		exit
+	fi
+  if [[ $1 =~ ^[0-9]*(\.[0-9]+)?$ ]]; then
+		cryptonightr=$1
+		shift
+	else
+		echo "Argument 7 must be an CryptoNightR Hashrate KHS"
+		exit
+	fi
+	if [[ $1 =~ ^[0-9]*(\.[0-9]+)?$ ]]; then
+		cuckooae=$1
+		shift
+	else
+		echo "Argument 8 must be an CuckooAE Hashrate HS"
 		exit
 	fi
 	if [[ $1 =~ ^[0-9]+$ ]]; then
-		zhash=$1
+		grin29d=$1
 		shift
 	else
-		echo "Argument 19 must be an Zhash Hashrate HS"
+		echo "Argument 9 must be an Grin29d Hashrate HS"
+		exit
+	fi
+  if [[ $1 =~ ^[0-9]+$ ]]; then
+		beamv2=$1
+		shift
+	else
+		echo "Argument 10 must be an BeamV2 Hashrate HS"
 		exit
 	fi
 	if [[ $1 =~ ^[0-9]+$ ]]; then
-		beam=$1
+		x16rv2=$1
 		shift
 	else
-		echo "Argument 20 must be an Beam Hashrate HS"
+		echo "Argument 11 must be an X16Rv2 Hashrate MHS"
 		exit
 	fi
+	if [[ $1 =~ ^[0-9]+$ ]]; then
+		randomx=$1
+		shift
+	else
+		echo "Argument 12 must be an RandomX Hashrate KHS"
+		exit
+	fi
+	if [[ $1 =~ ^[0-9]+$ ]]; then
+		eaglesong=$1
+		shift
+	else
+		echo "Argument 13 must be an Eaglesong Hashrate KHS"
+		exit
+	fi
+	if [[ $1 =~ ^[0-9]*(\.[0-9]+)?$ ]]; then
+		cuckaroom=$1
+		shift
+	else
+		echo "Argument 14 must be an Cuckaroom Hashrate HS"
+		exit
+	fi
+	if [[ $1 =~ ^[0-9]*(\.[0-9]+)?$ ]]; then
+		cuckatoo32=$1
+		shift
+	else
+		echo "Argument 15 must be an Cuckatoo32 Hashrate HS"
+		exit
+	fi
+	if [[ $1 =~ ^[0-9]*(\.[0-9]+)?$ ]]; then
+		kawpow=$1
+		shift
+	else
+		echo "Argument 16 must be an KawPow Hashrate MS"
+		exit
+	fi
+	if [[ $1 =~ ^[0-9]*(\.[0-9]+)?$ ]]; then
+		cuckaroobfc=$1
+		shift
+	else
+		echo "Argument 17 must be an CuckarooBFC Hashrate HS"
+		exit
+	fi
+	if [[ $1 =~ ^[0-9]+$ ]]; then
+		beamv3=$1
+		shift
+	else
+		echo "Argument 18 must be an BeamV3 Hashrate HS"
+		exit
+	fi
+	if [[ $1 =~ ^[0-9]*(\.[0-9]+)?$ ]]; then
+		cuckarooz29=$1
+		shift
+	else
+		echo "Argument 19 must be an CuckaRooz29 Hashrate HS"
+		exit
+	fi
+	if [[ $1 =~ ^[0-9]*(\.[0-9]+)?$ ]]; then
+		octopus=$1
+		shift
+	else
+		echo "Argument 20 must be an Octopus Hashrate HS"
+		exit
+	fi
+	if [[ $1 =~ ^[0-9]*(\.[0-9]+)?$ ]]; then
+		autolykos=$1
+		shift
+	else
+		echo "Argument 21 must be an Autolykos Hashrate HS"
+		exit
+	fi
+	if [[ $1 =~ ^[0-9]*(\.[0-9]+)?$ ]]; then
+		zelhash=$1
+		shift
+	else
+		echo "Argument 22 must be an Zelhash Hashrate HS"
+		exit
+	fi
+
 	if [[ $1 =~ ^[Yy]$ ]]; then
 		applyhashrate
 		autoswitch config
@@ -261,7 +286,7 @@ if [[ $# -gt 0 ]]; then
 		autoswitch config
 		echo "Autoswitch not started"
 	else
-	echo "For argument 21 please select y/n"
+	echo "For argument 23 please select y/n"
 	exit
 	fi
 fi
