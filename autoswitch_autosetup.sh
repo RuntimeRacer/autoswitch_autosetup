@@ -31,8 +31,12 @@ function applyhashrate()
 	echo "$neoscrypt" | sed -i -e"s/^\"NeoScrypt\":.*/\"NeoScrypt\":$neoscrypt/" /hive-config/autoswitch.conf
 	echo "$lyra2rev2" | sed -i -e"s/^\"Lyra2REv2\":.*/\"Lyra2REv2\":$lyra2rev2/" /hive-config/autoswitch.conf
 	echo "$ethash" | sed -i -e"s/^\"Ethash\":.*/\"Ethash\":$ethash/" /hive-config/autoswitch.conf
+	echo "$ethash" | sed -i -e"s/^\"ETCHash\":.*/\"ETCHash\":$ethash/" /hive-config/autoswitch.conf
 	echo "$lyra2z" | sed -i -e"s/^\"Lyra2Z\":.*/\"Lyra2Z\":$lyra2z/" /hive-config/autoswitch.conf
 	echo "$zhash" | sed -i -e"s/^\"Zhash\":.*/\"Zhash\":$zhash/" /hive-config/autoswitch.conf
+
+	# Disable / enable ZIL
+	sed -i -e"s/^\ZIL\=.*/\ZIL\=0/" /hive-config/autoswitch.conf
 
 }
 
@@ -168,7 +172,7 @@ if [[ $# -gt 0 ]]; then
 		cuckatoo32=$1
 		shift
 	else
-		echo "Argument 8 must be an Cuckatoo32 Hashrate HS"
+		echo "Argument 8 must be an Cuckatoo32 Hashrate KHS"
 		exit
 	fi
 	if [[ $1 =~ ^[0-9]*(\.[0-9]+)?$ ]]; then
